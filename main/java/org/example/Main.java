@@ -1,8 +1,9 @@
 package org.example;
 
 public class Main {
-
-    void checkEmployeeAttendence() {
+    // UC-1------
+    void checkEmployeeAttendence()
+    {
         int IS_FULL_TIME = 1;
         double empCheck = Math.floor(Math.random() * 10) % 2;
 
@@ -12,27 +13,75 @@ public class Main {
             System.out.println("Employee is Absent");
     }
 
+    //UC-2------------
     void dailyEmployeeWage() {
-        int fullTime=1;
-        int employeeWagePerHour=20;
-        int employeeHrs=0;
-        int employeeWage=0;
+        int fullTime = 1;
+        int employeeWagePerHour = 20;
+        int employeeHrs = 0;
+        int employeeWage = 0;
 
         double employeeCheck = Math.floor(Math.random() * 10) % 2;
-        if ( employeeCheck == fullTime)
-            employeeHrs=8;
+        if (employeeCheck == fullTime)
+            employeeHrs = 8;
         else
-            employeeHrs=0;
+            employeeHrs = 0;
 
-        employeeWage=employeeHrs * employeeWagePerHour;
+        employeeWage = employeeHrs * employeeWagePerHour;
         System.out.println("Employee Wage " + employeeWage);
     }
+
+    //UC-3----------------------------
+    void dailyEmployeePartTimeWage() {
+        int fullTime = 2;
+        int partTime = 1;
+        int employeeWagePerHour = 20;
+        int employeeHrs = 0;
+        int employeeWage = 0;
+
+        int employeeCheck = (int) Math.floor(Math.random() * 10) % 3;
+        if (employeeCheck == fullTime)
+            employeeHrs = 16;
+        else if (employeeCheck == partTime)
+            employeeHrs = 8;
+        else
+            employeeHrs = 0;
+
+        employeeWage = employeeHrs * employeeWagePerHour;
+        System.out.println("Employee Wage " + employeeWage);
+    }
+
+    // UC-4-SwitchCase-------------------
+    int switchcase() {
+        int employeeWagePerHour = 20;
+        int employeeHrs = 0;
+        int employeeWage = 0;
+        int employeeCheck = (int) Math.floor(Math.random() * 10) % 3;
+        switch (employeeCheck) {
+            case 1:
+                employeeHrs = 16;
+                break;
+            case 2:
+                employeeHrs = 8;
+                break;
+            default:
+                employeeHrs = 0;
+        }
+
+        employeeWage = employeeHrs * employeeWagePerHour;
+
+        return employeeWage;
+
+    }
+
 
 
     public static void main(String[] args) {
         Main Emp = new Main();
-        //	Emp.checkEmployeeAttendence();
-        Emp.dailyEmployeeWage();
+        // Emp.checkEmployeeAttendence();
+        // Emp.dailyEmployeeWage();
+        // Emp.dailyEmployeePartTimeWage();
+
+        System.out.println(Emp.switchcase());
 
     }
 }
